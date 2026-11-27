@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# Build output & caches
+dist/
+.vite/
+.cache/
+*.tsbuildinfo
+coverage/
+
+# Environment variables & secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets.*
+credentials*.json
+
+# Logs & OS / editor files
+*.log
+npm-debug.log*
+.DS_Store
+.idea/
+.vscode/
+.claude/settings.local.json

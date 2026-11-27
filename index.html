@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RepoRivals Audio Engine — Playground</title>
+    <style>
+      :root { color-scheme: dark; }
+      body { margin: 0; font: 14px/1.4 system-ui, sans-serif; background: #0d0f14; color: #e6e8ee; }
+      main { max-width: 980px; margin: 0 auto; padding: 20px; }
+      h1 { font-size: 20px; margin: 0 0 4px; }
+      h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: #8b93a7; margin: 22px 0 8px; }
+      .row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+      button { background: #1b2030; color: #e6e8ee; border: 1px solid #2c3347; border-radius: 6px; padding: 7px 12px; cursor: pointer; font: inherit; }
+      button:hover { background: #252c40; }
+      button.primary { background: #6d3df5; border-color: #8a63ff; }
+      button.danger { background: #5a1d27; border-color: #8a2c3b; }
+      button:disabled { opacity: .45; cursor: not-allowed; }
+      input[type=text], select { background: #141824; color: inherit; border: 1px solid #2c3347; border-radius: 6px; padding: 7px; font: inherit; }
+      input[type=text] { flex: 1; min-width: 240px; }
+      label.vol { display: flex; gap: 6px; align-items: center; min-width: 210px; }
+      label.vol span { width: 56px; color: #8b93a7; }
+      #status { color: #8b93a7; margin-bottom: 8px; }
+      #log { background: #080a0e; border: 1px solid #1f2433; border-radius: 6px; height: 200px; overflow: auto; padding: 8px; font: 12px ui-monospace, monospace; white-space: pre-wrap; }
+      .voices { display: grid; grid-template-columns: 90px 1fr auto; gap: 6px 8px; align-items: center; max-width: 640px; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>RepoRivals Audio Engine</h1>
+      <div id="status">Audio not enabled. Click “Enable Audio” first (browser autoplay rules).</div>
+
+      <div class="row">
+        <button id="enable" class="primary">Enable Audio</button>
+        <button id="demo" disabled>Start Demo Battle</button>
+        <button id="mute">Mute</button>
+        <button id="music">Start Music</button>
+        <button id="stop" class="danger">Stop All Audio</button>
+        <button id="dispose">Dispose</button>
+      </div>
+
+      <h2>Sound effects</h2>
+      <div class="row" id="sfx"></div>
+
+      <h2>Battle events</h2>
+      <div class="row" id="events"></div>
+
+      <h2>Voices</h2>
+      <div class="voices" id="voices"></div>
+
+      <h2>Custom dialogue</h2>
+      <div class="row">
+        <input id="text" type="text" value="Your own complexity has become your greatest enemy." />
+        <select id="speaker">
+          <option value="announcer">Announcer</option>
+          <option value="warriorA">Warrior A</option>
+          <option value="warriorB">Warrior B</option>
+        </select>
+        <select id="priority">
+          <option value="normal">normal</option>
+          <option value="low">low</option>
+          <option value="high">high</option>
+          <option value="critical">critical (interrupts)</option>
+        </select>
+        <button id="say">Speak</button>
+      </div>
+
+      <h2>Volume</h2>
+      <div class="row" id="volumes"></div>
+
+      <h2>Event log</h2>
+      <div id="log"></div>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
